@@ -40,6 +40,7 @@ async function getWeather(query) {
     data.weather[0].icon +
     '@2x.png'
 
+
   let description = data.weather[0].description
   let actualTemp = data.main.temp
   let feelsLikeTemp = data.main.feels_like
@@ -122,7 +123,7 @@ displayWeatherInfo = (weatherObj) => {
   addBreak()
 
   // time weather was last updated
-  let updatedAt = document.createElement('p')
+  const updatedAt = document.createElement('p')
   updatedAt.textContent = "Last updated: " +
     weatherObj.updatedAt.toLocaleTimeString(
       'en-US',
