@@ -10,6 +10,7 @@ Convert a string concatenation to instead use template literals and string inter
     -https://techaffinity.com/blog/javascript-string-interpolation/
 
 Convert some object-related code to use ES6 destructuring.
+    -Similar stumbling as before, not to sure on what code to keep and what code to simplify.
     Resources to help troubleshoot:
     Recorded Lesson
     -https://hacks.mozilla.org/2015/05/es6-in-depth-destructuring/

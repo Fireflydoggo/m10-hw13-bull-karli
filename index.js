@@ -40,10 +40,7 @@ async function getWeather(query) {
     data.weather[0].icon +
     '@2x.png'
 
-
-  let description = data.weather[0].description
-  let actualTemp = data.main.temp
-  let feelsLikeTemp = data.main.feels_like
+  let { description, actualTemp, feelsLikeTemp } = getWeather();
   let place = data.name + ", " + data.sys.country
   // create JS date object from Unix timestamp
   let updatedAt = new Date(data.dt * 1000)
@@ -58,6 +55,17 @@ async function getWeather(query) {
     updatedAt: updatedAt
   }
   
+
+  function getWeather() {
+    return data();
+  }
+
+  function getWeather() {
+    let description = data.weather[0].description;
+    let actualTemp = data.main.temp;
+    let feelsLikeTemp = data.main.feels_like;
+    return { description, actualTemp, feelsLikeTemp };
+  }
 }
 
 // show error message when location isn't found
@@ -124,13 +132,12 @@ displayWeatherInfo = (weatherObj) => {
 
   // time weather was last updated
   const updatedAt = document.createElement('p')
-  updatedAt.textContent = "Last updated: " +
-    weatherObj.updatedAt.toLocaleTimeString(
-      'en-US',
-      {
-        hour: 'numeric',
-        minute: '2-digit'
-      }
-    )
+  updatedAt.textContent = `Last updated: ${weatherObj.updatedAt.toLocaleTimeString(
+    'en-US',
+    {
+      hour: 'numeric',
+      minute: '2-digit'
+    }
+  )}`
   weatherContainer.appendChild(updatedAt)
 }
