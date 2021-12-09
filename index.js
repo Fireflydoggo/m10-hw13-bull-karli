@@ -39,6 +39,7 @@ async function getWeather(query) {
   const iconUrl = 'https://openweathermap.org/img/wn/' +
     data.weather[0].icon +
     '@2x.png'
+
   let description = data.weather[0].description
   let actualTemp = data.main.temp
   let feelsLikeTemp = data.main.feels_like
@@ -63,8 +64,8 @@ function displayLocNotFound() {
   // clears any previous weather info
   weatherContainer.innerHTML = "";
   // create h2, add error msg, and add to page
-  var errMsg = document.createElement('h2')
-  errMsg.textContent = "Location not found"
+  const errMsg = document.createElement('h2')
+  errMsg.textContent = `Location not found`
   weatherContainer.appendChild(errMsg)
 }
 
